@@ -17,3 +17,9 @@
 ## Reference
 
 交互组织参考 [CNN Explainer](https://github.com/poloclub/cnn-explainer)，未使用其代码或图像。物理内容与引用见原讲义及源码 README。此前版本保留在 Git 历史中。
+## 新增交互组件
+
+- [离散粒子如何表示连续场](https://heytau.github.io/wcsph-lecture-interactive/#lab-reconstruction)：拖动采样点、调节核宽、追踪单个粒子贡献，比较原始求和与归一化重建。
+- [随体导数](https://heytau.github.io/wcsph-lecture-interactive/#lab-material)：比较固定测点与移动粒子的温度历史，实时分解局部项、对流项和随体导数，支持播放、回看与单步。
+
+两组件随原稿嵌入第 1.3 节与第 2.1 节之后。详细模型见页面说明和源码 README。
