@@ -1,36 +1,19 @@
-# WCSPH · Interactive Lecture
+# WCSPH Explainer
 
-**WCSPH：由密度误差驱动的显式压力反馈**
+[在线探索与阅读](https://heytau.github.io/wcsph-lecture-interactive/)
 
-[在线阅读交互讲义](https://heytau.github.io/wcsph-lecture-interactive/) · [下载完整源码](wcsph-lecture-interactive-source.zip)
+拖动一个粒子，追踪「位置 → 核权重 → 密度 → 压力 → 显式推进」。点击计算阶段查看对应局部计算，点选贡献项与粒子位置对照，播放或单步执行真实的 SPH 更新。页面与矢量插图采用统一的浅色底面。
 
-独立的交互阅读版本，包含完整中文讲义、38 个独立公式、162 处行内公式与 7 张矢量插图。
+讲义原文、38 个编号公式、7 张矢量图、字体和交互代码全部包含在 index.html 中，下载后可离线打开。
 
-- **粒子与密度**：调整粒子间距、平滑长度，观察一维核密度重建。
-- **Tait 状态方程**：调整人工声速、非线性指数和密度偏差，对照压力与线性近似。
-- **时间步限制**：比较声学、加速度、黏性和表面张力给出的时间步上限。
-- 章节导航、阅读进度和可放大的矢量插图。
+## 可编辑源码
 
-## 使用
+下载并解压 [完整源码 ZIP](./wcsph-lecture-interactive-source.zip)，使用 Node.js 22 或更新版本执行 npm ci、npm run build、npm run check。npm run standalone 生成独立 HTML。
 
-`index.html` 是完整的独立网页。直接下载并用浏览器打开即可离线使用，字体、图片和交互代码均已内嵌，无需网络、插件或登录。
+## 模型范围
 
-## 修改与重建
+121 个等质量粒子，二维单位厚度切片，密度单位 kg/m³。二维 cubic spline 核、Tait 状态方程、非负压力、对称压力力及半隐式 Euler；时间步由当前场自适应计算。关闭重力与表面张力，边缘邻域不作密度补偿，可选对称耗散黏性。页面的「模型与单位」提供详细说明。
 
-下载并解压 `wcsph-lecture-interactive-source.zip`。需要 Node.js 22 或更新版本：
+## Reference
 
-```sh
-npm ci
-npm run build
-npm run check
-npm run preview
-```
-
-原稿为 `lecture.md`，样式与交互组件位于 `src/`，构建后的目录式网站位于 `docs/`。执行 `npm run standalone` 可以重新生成独立 HTML。
-
-## 模型说明
-
-密度实验使用归一化的一维 cubic spline 核，粒子质量为 0.2 kg，显示线密度 kg/m。Tait 实验展示未截断压力；时间步实验中的安全系数是教学示例，不能替代具体离散方法的稳定性验证。学术引用保留在讲义末尾的 `Reference:` 中。
-
-使用 [KaTeX](https://katex.org/) 与 [markdown-it](https://github.com/markdown-it/markdown-it)。第三方许可证收录在源码压缩包中。本仓库未授予讲义和插图额外的开放许可。
-
+交互组织参考 [CNN Explainer](https://github.com/poloclub/cnn-explainer)，未使用其代码或图像。物理内容与引用见原讲义及源码 README。此前版本保留在 Git 历史中。
